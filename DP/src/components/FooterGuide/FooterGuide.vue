@@ -12,9 +12,9 @@
       </span>
       <span>约拍</span>
     </div>
-    <div class="guide_item" @click="goto('/publish')" :class="{on: isCurrent('/publish')}">
+    <div class="guide_item" @click="goto('/publish')" >
       <span class="item_icon">
-      <i class="iconfont iconfabu-"></i>
+      <i class="iconfont iconfabu"></i>
       </span>
     </div>
     <div class="guide_item" @click="goto('/infor')" :class="{on: isCurrent('/infor')}">
@@ -68,12 +68,15 @@
       align-items center
       margin 5px
       color #999999
-      &.on
+      &.on, .iconfabu
         color $red
       span
         font-size 12px
         margin-top 2px
         margin-bottom 2px
         .iconfont
-         font-size 22px
+          font-size 22px
+        .iconfabu
+          font-size 35px
+          line-height 36px
 </style>

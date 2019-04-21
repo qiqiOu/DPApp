@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import home from '@/pages/home/home'
 import infor from '@/pages/infor/infor'
 import my from '@/pages/my/my'
-import publish from  '@/pages/publish/publish'
 import shop from '@/pages/shop/shop'
 import login from '@/pages/login/login'
 import register from '@/pages/register/register'
@@ -24,7 +23,11 @@ export default new Router({
     {
       path: '/home',
       component: home,
+      name: 'home',
       redirect: '/hot',
+      meta: {
+        showFooter: true
+      },
       children:[
         {
           path: '/subscript',
@@ -53,29 +56,25 @@ export default new Router({
       ]
     },
     {
+      path:'/shop',
+      name: 'shop',
+      component: shop,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
       path:'/infor',
       component: infor,
+      name: 'infor',
       meta: {
         showFooter: true
       }
     },
     {
       path:'/my',
+      name: 'my',
       component: my,
-      meta: {
-        showFooter: true
-      }
-    },
-    {
-      path:'/publish',
-      component: publish,
-      meta: {
-        showFooter: true
-      }
-    },
-    {
-      path:'/shop',
-      component: shop,
       meta: {
         showFooter: true
       }

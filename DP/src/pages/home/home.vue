@@ -1,7 +1,9 @@
 <template>
   <div id="home">
-    <i class="iconfont iconsousuo"></i>
-    <input type="search" placeholder="搜索" class="searchsty"/>
+    <div class="home_top">
+      <input type="search" placeholder="搜索" class="searchsty"/>
+      <i class="iconfont iconsousuo"></i>
+    </div>
     <HomeNav></HomeNav>
   </div>
 </template>
@@ -20,18 +22,25 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   #home
-    touch-action pan-y!important
-    .searchsty
-      width 90%
-      margin-top 10px
-      margin-left 5%
-      padding 10px 10px 10px 50px
-      border-radius 20px
-      font-size 15px
-    .iconsousuo
-      position absolute
-      margin-left 10%
-      margin-top 21px
-
+    margin 0
+    padding 0
+    width 100%
+    .home_top
+      position fixed
+      height 60px
+      width 100%
+      background-color #f5f5f5
+      .searchsty
+        width 90%
+        margin-top 10px
+        margin-left 5%
+        padding 10px 10px 10px 50px
+        border-radius 20px
+        font-size 15px
+        position fixed
+      .iconsousuo
+        margin-left 10%
+        margin-top 21px
+        position fixed
 
 </style>
