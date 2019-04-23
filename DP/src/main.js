@@ -5,10 +5,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueTouch from 'vue-touch'
-import layer from 'vue-layer'
+import VideoPlayer from 'vue-video-player'
 
-Vue.prototype.$layer = layer(Vue);
-Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(VideoPlayer)
 
 VueTouch.config.swipe = {
   threshold: 10 //手指左右滑动距离

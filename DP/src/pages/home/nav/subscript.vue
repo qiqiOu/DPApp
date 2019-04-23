@@ -17,24 +17,30 @@
       </div>
       <div class="show_interacct">
         <i :class="{'iconfont':true ,'iconxihuan_un':item.islike == 0,'iconxihuan':item.islike == 1}" @click="islike(item.islike,index)"></i>
-        <i class="iconfont iconliuyan" @click="comment"></i>
+        <i class="iconfont iconliuyan" @click="comment(index)"></i>
         <i class="iconfont iconzhuanfa"></i>
         <i :class="{'iconfont':true ,'iconshoucang_un':item.iscollect == 0,'iconshoucang':item.iscollect == 1}" @click="iscollect(item.iscollect,index)"></i>
-        <div class="likenum">共{{item.likenum}}喜欢</div>
+        <div class="likenum">共{{item.likenum}}人喜欢</div>
         <div :class="{'comment': item.commentnum > 0 ,'hidden': item.commentnum == 0}">查看全部{{item.commentnum}}条评论</div>
         <input type="text" placeholder="留下你的精彩评论吧" class="commentsty"/>
       </div>
+    </li>
+    <li>
+      <Comment v-show="isshowcomment" v-on:listenToChildEvent="closecomment" v-bind:data="index"></Comment>
     </li>
   </ul>
 </template>
 
 <script type="text/javascript">
-    import hot from "./hot";
+   import Comment from '../../../components/comment/comment'
 
     export default {
       name: "subscript",
+      components:{Comment},
       data() {
         return {
+          isshowcomment:false,
+          index:-1,
           items:[
             { headpic:'../../../assets/imgs/1.jpeg',
               username:'1111',
@@ -87,20 +93,14 @@
             case 0:this.items[index].iscollect = 1;break;
           }
         },
-        comment(){
-          this.$layer.open({
-            type: 2,
-            title: '共条评论',
-            scrollbar: false,
-            // offset:'20%',
-            anim: 2,
-            area: ['100%', '80%'],
-            content:{
-              content:hot,//传递的组件对象
-              parent: this,//当前的vue对象
-              data:{},//props
-            }
-          });
+        comment(index){
+           this.isshowcomment = true;
+           this.index = index;
+           document.querySelector('body').setAttribute('style', 'overflow:hidden');
+          // document.querySelector('body').removeAttribute('style')
+        },
+        closecomment(isshowcomment){
+          this.isshowcomment = isshowcomment;
         }
       }
     }
@@ -108,7 +108,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../../common/stylus/mixins.styl"
-
   #subscript
     width 100%
     .iconxihuan, .iconshoucang

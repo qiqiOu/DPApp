@@ -82,3 +82,27 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*图片点击放大组件中swipe图片居中*/
+#imgEnlarge .mint-swipe-item-wrap > div {
+  visibility:hidden;
+  display:flex;
+  -moz-box-pack:center;
+  -webkit-box-pack:center;
+  justify-content:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-align-items:center;
+}
+#imgEnlarge .mint-swipe-item-wrap > div.is-active {
+  visibility:visible;
+  display:flex;
+  -moz-box-pack:center;
+  -webkit-box-pack:center;
+  justify-content:center;
+  -moz-box-align:center;
+  -webkit-box-align:center;
+  align-items:center;
+  -webkit-align-items:center;
+}

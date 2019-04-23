@@ -54,4 +54,5 @@
           font-size 18p
     .content
       padding-top 80px
+      padding-bottom 80px
 </style>

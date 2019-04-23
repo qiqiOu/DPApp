@@ -9,6 +9,8 @@ import register from '@/pages/register/register'
 import subscript from "@/pages/home/nav/subscript";
 import hot from "@/pages/home/nav/hot";
 import sort from "@/pages/home/nav/sort";
+import pic_detail from "@/pages/home/nav/subscript_detail_pic";
+import movie_detail from "@/pages/home/nav/subscript_detail_movie";
 
 Vue.use(Router)
 
@@ -54,6 +56,16 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path:'/subscript/subscript_detail_pic',
+      name:'pic_detail',
+      component:pic_detail
+    },
+    {
+      path:'/subscript/subscript_detail_movie',
+      name:'movie_detail',
+      component:movie_detail
     },
     {
       path:'/shop',
