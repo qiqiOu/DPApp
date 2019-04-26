@@ -5,7 +5,7 @@
           <div class="lists" v-for="list in sort.lists">
             <div class="list">
               <img :src="list.pic" class="pic"/>
-              {{list.name}}
+              <div class="list_name">{{list.name}}</div>
             </div>
           </div>
       </div>
@@ -67,7 +67,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../../common/stylus/mixins.styl"
+  @import "../../../../common/stylus/mixins.styl"
   .sorts
     width 90%
     margin-left 5%
@@ -81,13 +81,25 @@
     .lists
       display inline-block
       width 31%
-      margin 1px 1%
+      margin 5px 1%
       .list
-        background lightgray
-        width 100%
-        text-align center
+        width: 100%;
+        height: 0px;
+        padding-bottom: 100%;
+        overflow:hidden;
+        margin: 0;
+        position:relative;
         .pic
+          position:absolute;
+          width: 100%;
+          height: 100%;
+        .list_name
+          position:absolute;
           width 100%
-          height auto
-
+          color #eeeeee
+          font-size 15px
+          bottom 0
+          line-height 30px
+          text-align center
+          background rgba(0,0,0,0.3)
 </style>

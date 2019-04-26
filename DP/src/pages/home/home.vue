@@ -30,6 +30,7 @@
       height 60px
       width 100%
       background-color #f5f5f5
+      z-index 99999
       .searchsty
         width 90%
         margin-top 10px

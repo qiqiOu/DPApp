@@ -3,7 +3,7 @@
     <div class="background" id="sss">
       <div class="top">
           <i class="iconfont iconclose"></i>
-          <img src="../../../assets/imgs/1.jpeg" class="headpic">
+          <img src="../../../../assets/imgs/1.jpeg" class="headpic">
           <span class="username">用户名</span>
           <button class="care">+关注</button>
         </div>
@@ -106,8 +106,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import "../../../../node_modules/swiper/dist/css/swiper.css"
-@import "../../../common/stylus/mixins.styl"
+@import "../../../../../node_modules/swiper/dist/css/swiper.css"
+@import "../../../../common/stylus/mixins.styl"
 .background
   background-color #222222
   width 100%

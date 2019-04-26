@@ -33,7 +33,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
-
     #main
       width 100%
       height 30px
@@ -44,6 +43,7 @@
       position fixed
       border-bottom 1px solid #cccccc
       background-color #f5f5f5
+      z-index 9999
       li
         height 100%
         margin-right 10px

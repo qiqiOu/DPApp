@@ -3,13 +3,13 @@
     <li class="show" v-for="item ,index in items">
       <div class="show_infor">
         <!--<img :src="item.headpic" class="headpic" alt="头像">-->
-        <img src="../../../assets/imgs/1.jpeg" class="headpic" alt="头像">
+        <img src="../../../../assets/imgs/1.jpeg" class="headpic" alt="头像">
         <span class="username">{{item.username}}</span>
         <span class="title">{{item.title}}</span>
       </div>
       <div class="show_pic">
         <!--<img :src="item.pics[0]">-->
-        <img src="../../../assets/imgs/1.jpeg">
+        <img src="../../../../assets/imgs/1.jpeg">
         <div :class="{'picnum': item.pics.length > 1 ,'hidden': item.pics.length == 1}">
           共 {{item.pics.length}} 张图
           <i class="iconfont icondown"></i>
@@ -32,7 +32,7 @@
 </template>
 
 <script type="text/javascript">
-   import Comment from '../../../components/comment/comment'
+   import Comment from '../../../../components/comment/comment'
 
     export default {
       name: "subscript",
@@ -107,7 +107,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../../common/stylus/mixins.styl"
+  @import "../../../../common/stylus/mixins.styl"
   #subscript
     width 100%
     .iconxihuan, .iconshoucang

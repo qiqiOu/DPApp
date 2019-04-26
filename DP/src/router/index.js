@@ -6,11 +6,15 @@ import my from '@/pages/my/my'
 import shop from '@/pages/shop/shop'
 import login from '@/pages/login/login'
 import register from '@/pages/register/register'
-import subscript from "@/pages/home/nav/subscript";
+import subscript from "@/pages/home/nav/subscript/subscript";
 import hot from "@/pages/home/nav/hot";
-import sort from "@/pages/home/nav/sort";
-import pic_detail from "@/pages/home/nav/subscript_detail_pic";
-import movie_detail from "@/pages/home/nav/subscript_detail_movie";
+import sort from "@/pages/home/nav/sort/sort";
+import sort_detail_hot from "@/pages/home/nav/sort/sort_detail_hot";
+import sort_detail_new from "@/pages/home/nav/sort/sort_detail_new";
+import sort_detail_photographer from "@/pages/home/nav/sort/sort_detail_photographer";
+import sort_detail from "@/pages/home/nav/sort/sort_detail";
+import pic_detail from "@/pages/home/nav/subscript/subscript_detail_pic";
+import movie_detail from "@/pages/home/nav/subscript/subscript_detail_movie";
 
 Vue.use(Router)
 
@@ -66,6 +70,29 @@ export default new Router({
       path:'/subscript/subscript_detail_movie',
       name:'movie_detail',
       component:movie_detail
+    },
+    {
+      path:'/sort/sort_detail',
+      name:'sort_detail',
+      redirect: '/sort/sort_detail/hot',
+      component:sort_detail,
+      children:[
+        {
+          path: '/sort/sort_detail/hot',
+          name: 'sort_detail_hot',
+          component: sort_detail_hot
+        },
+        {
+          path: '/sort/sort_detail/new',
+          name: 'sort_detail_new',
+          component: sort_detail_new
+        },
+        {
+          path: '/sort/sort_detail/photographer',
+          name: 'sort_detail_photographer',
+          component: sort_detail_photographer
+        }
+      ]
     },
     {
       path:'/shop',

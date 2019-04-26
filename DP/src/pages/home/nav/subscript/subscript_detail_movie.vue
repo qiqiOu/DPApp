@@ -16,8 +16,8 @@
     </div>
     <ul class="right">
          <li>
-           <img src="../../../assets/imgs/add.png" class="add"></img>
-           <img  src="../../../assets/imgs/1.jpeg" class="headpic"/>
+           <img src="../../../../assets/imgs/add.png" class="add"></img>
+           <img src="../../../../assets/imgs/1.jpeg" class="headpic"/>
          </li>
         <li>
           <i class="iconfont iconxihuan"></i><div class="describe">21</div>
@@ -27,7 +27,7 @@
         </li>
         <li><i class="iconfont iconxiazai1"></i><div class="describe">45</div></li>
         <li>
-          <img src="../../../assets/imgs/music.png" class="music"/>
+          <img src="../../../../assets/imgs/music.png" class="music"/>
         </li>
       </ul>
 
@@ -63,9 +63,9 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import '../../../../node_modules/video.js/dist/video-js.css'
-  @import '../../../../node_modules/vue-video-player/src/custom-theme.css'
-  @import "../../../common/stylus/mixins.styl"
+  @import '../../../../../node_modules/video.js/dist/video-js.css'
+  @import '../../../../../node_modules/vue-video-player/src/custom-theme.css'
+  @import "../../../../common/stylus/mixins.styl"
   .background
     background-color #000000
     width 100%
