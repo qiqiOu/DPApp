@@ -16,7 +16,7 @@
         <div class="name">#{{sortname}}</div>
         <div class="total">共 {{total}} 作品</div>
       </div>
-      <v-touch class="sort" @swipeleft="swiperleft" @swiperight="swiperright">
+      <v-touch @swipeleft="swiperleft" @swiperight="swiperright">
         <SortDetailNav></SortDetailNav>
       </v-touch>
     </div>
@@ -43,7 +43,6 @@
       swipedown(){
         var container = document.getElementById('container');
         var distance = container.getBoundingClientRect().top;
-
         if(distance < -50){
           if(this.isfirst1 && !this.isfirst2){
             this.isfirst1 = false;
@@ -59,34 +58,26 @@
         }
       },
       swiperleft: function () {
-        console.log("left");
-        // switch (this.$route.path) {
-        //   case '/subscript': this.$router.push({'path':'/hot'});break;
-        //   case '/hot': this.$router.push({'path':'/sort'});break;
-        //   case '/sort': this.$router.push({'path':'/shop'});break;
-        //   case '/shop': this.$router.push({'path':'/infor'});break;
-        //   case '/infor': this.$router.push({'path':'/my'});break;
-        // }
+        switch (this.$route.path) {
+          case '/sort/sort_detail/hot': this.$router.push({'path':'/sort/sort_detail/new'});break;
+          case '/sort/sort_detail/new': this.$router.push({'path':'/sort/sort_detail/photographer'});break;
+          case '/sort/sort_detail/photographer': this.$router.push({'path':'/sort/sort_detail/hot'});break;
+        }
       },
       swiperright: function () {
-        console.log("right");
-        // switch (this.$route.path) {
-        //   case '/hot': this.$router.push({'path':'/subscript'});break;
-        //   case '/sort': this.$router.push({'path':'/hot'});break;
-        //   case '/shop': this.$router.push({'path':'/hot'});break;
-        //   case '/infor': this.$router.push({'path':'/shop'});break;
-        //   case '/my': this.$router.push({'path':'/infor'});break;
-        // }
+        switch (this.$route.path) {
+          case '/sort/sort_detail/new': this.$router.push({'path':'/sort/sort_detail/hot'});break;
+          case '/sort/sort_detail/photographer': this.$router.push({'path':'/sort/sort_detail/new'});break;
+          case '/sort/sort_detail/hot': this.$router.push({'path':'/sort/sort_detail/photographer'});break;
+        }
       }
     },
     mounted: function () {
       this.$nextTick(function () {
         window.addEventListener('scroll', this.swipedown)
-        // this.timer = setInterval(this.swipedown, 100);
       })
     },
     destroyed: function () {
-      // clearInterval(this.timer);
     }
   };
 </script>
@@ -130,7 +121,7 @@
       width 100%
   .bottom
     width 100%
-    height 1000px
+    margin-bottom 10px
     background white
     .container_inner
       width 100%

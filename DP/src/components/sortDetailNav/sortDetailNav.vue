@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="sort_nav">
+    <div class="sort_nav" id="sort_nav">
       <router-link  to="/sort/sort_detail/hot" class="sort" >热门</router-link>
       <router-link  to="/sort/sort_detail/new" class="sort">最新</router-link>
       <router-link  to="/sort/sort_detail/photographer" class="sort">摄影师</router-link>
@@ -12,7 +12,18 @@
 
 <script>
     export default {
-        name: "sortDetailNav"
+        name: "sortDetailNav",
+        data() {
+          return {
+
+          }
+        },
+        methods:{
+
+        },
+        mounted: function () {
+
+        }
     }
 </script>
 
@@ -20,7 +31,6 @@
   @import "../../common/stylus/mixins.styl"
   .sort_nav
     width 100%
-    background-color crimson
     display flex
     justify-content center
     border-bottom 1px solid lightgray
