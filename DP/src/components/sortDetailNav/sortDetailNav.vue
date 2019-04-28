@@ -30,18 +30,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
   .sort_nav
-    width 100%
-    display flex
-    justify-content center
-    border-bottom 1px solid lightgray
-    height 40px
-    line-height 40px
-    .router-link-active
-        border-bottom 2px solid $red
-    .sort
-      display inline-block
-      padding 0 5%
-      font-size 15px
+    nav()
   .content
     width 90%
     padding 10px 5%

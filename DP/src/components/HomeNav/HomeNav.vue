@@ -1,11 +1,10 @@
 <template>
   <div class="nav">
     <div id="main">
-      <li><router-link  to="/subscript" >关注</router-link></li>
-      <li><router-link  to="/hot" >热门</router-link></li>
-      <li><router-link  to="/sort" >分类</router-link></li>
+      <li><router-link  to="/home/subscript" class="sort" >关注</router-link></li>
+      <li><router-link  to="/home/hot" class="sort" >热门</router-link></li>
+      <li><router-link  to="/home/sort" class="sort" >分类</router-link></li>
     </div>
-
     <!-- 路由匹配到的组件将显示在这里 -->
     <router-view class="content"></router-view>
 
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-
     export default {
       data() {
         return {

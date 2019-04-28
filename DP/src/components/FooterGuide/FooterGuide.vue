@@ -39,7 +39,7 @@
         this.$router.replace(path)
       },
       isCurrent(path) {
-        if((this.$route.path === '/subscript' || this.$route.path === '/hot' || this.$route.path === '/sort') && path === '/home')
+        if((this.$route.path === '/home/subscript' || this.$route.path === '/home/hot' || this.$route.path === '/home/sort') && path === '/home')
           return true
         return this.$route.path === path
       }

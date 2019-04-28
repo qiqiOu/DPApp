@@ -4,6 +4,12 @@ import home from '@/pages/home/home'
 import infor from '@/pages/infor/infor'
 import my from '@/pages/my/my'
 import shop from '@/pages/shop/shop'
+import order from '@/pages/shop/order/order'
+import order_all from '@/pages/shop/order/order_all'
+import order_subscribe from '@/pages/shop/order/order_subscribe'
+import order_over from '@/pages/shop/order/order_over'
+import order_evaluate from '@/pages/shop/order/order_evaluate'
+import order_refund from '@/pages/shop/order/order_refund'
 import login from '@/pages/login/login'
 import register from '@/pages/register/register'
 import subscript from "@/pages/home/nav/subscript/subscript";
@@ -30,13 +36,13 @@ export default new Router({
       path: '/home',
       component: home,
       name: 'home',
-      redirect: '/hot',
+      redirect: '/home/hot',
       meta: {
         showFooter: true
       },
       children:[
         {
-          path: '/subscript',
+          path: '/home/subscript',
           name: 'subscript',
           component: subscript,
           meta: {
@@ -44,7 +50,7 @@ export default new Router({
           }
         },
         {
-          path: '/hot',
+          path: '/home/hot',
           name: 'hot',
           component: hot,
           meta: {
@@ -52,7 +58,7 @@ export default new Router({
           }
         },
         {
-          path: '/sort',
+          path: '/home/sort',
           name: 'sort',
           component: sort,
           meta: {
@@ -101,6 +107,39 @@ export default new Router({
       meta: {
         showFooter: true
       }
+    },
+    {
+      path:'/order',
+      name: 'order',
+      component: order,
+      redirect: '/order/order_all',
+      children:[
+        {
+          path: '/order/order_all',
+          name: 'order_all',
+          component: order_all
+        },
+        {
+          path: '/order/order_subscribe',
+          name: 'order_subscribe',
+          component: order_subscribe
+        },
+        {
+          path: '/order/order_over',
+          name: 'order_over',
+          component: order_over
+        },
+        {
+          path: '/order/order_evaluate',
+          name: 'order_evaluate',
+          component: order_evaluate
+        },
+        {
+          path: '/order/order_refund',
+          name: 'order_refund',
+          component: order_refund
+        }
+      ]
     },
     {
       path:'/infor',
