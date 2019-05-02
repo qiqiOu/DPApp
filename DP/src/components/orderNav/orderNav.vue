@@ -23,7 +23,6 @@
   .order_nav
     nav()
   .content
-    width 90%
-    padding 10px 5%
-    min-height 150px
+    width 100%
+    padding 10px 0px
 </style>

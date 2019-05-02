@@ -3,9 +3,9 @@
     <span class="desc">登录后更精彩</span>
     <div>
       <form>
-        <input type="text" name="tel" placeholder="      请输入手机号" class="inputsty"/>
-        <input type="password" name="pwd" placeholder="      请输入密码" class="inputsty"/>
-        <input type="submit" value="登 录" class="loginsty"/>
+        <input type="number" v-model.trim="loginData.tel" name="tel" placeholder="      请输入手机号" class="inputsty"/>
+        <input type="password" v-model.trim="loginData.password" name="pwd" placeholder="      请输入密码" class="inputsty"/>
+        <input type="button" value="登 录" class="loginsty" @click="doLogin"/>
       </form>
       <div class="registersty" @click="goto('/register')">注册</div>
     </div>
@@ -13,11 +13,31 @@
 </template>
 
 <script>
+  import utils from "../../components/utils/utils"
   export default {
     name: "login",
+    data(){
+      return{
+        loginData:{
+          tel:"",
+          password:""
+        }
+      }
+    },
     methods:{
       goto(path){
         this.$router.replace(path)
+      },
+      doLogin(){
+        let success=(response)=>{
+          console.log(response.data.msg);
+        }
+        utils.axiosMethod({
+          method:"POST",
+          url:"/user/login/",
+          data:this.loginData,
+          callback:success
+        })
       }
     }
   }
@@ -28,26 +48,27 @@
   .login
     width 100%
     height 100%
+    position fixed
     background-position center
     background-size auto
     background-image url("../../assets/imgs/login_bg.png")
-    center()
     .desc
       font-size 32px
       font-weight bolder
       color #fff
-      position absolute
-      left 5%
-      top 8%
+      margin-left 5%
+      line-height 100px
     form
+      margin-top 30%
       .inputsty
-        width 80%
+        width 70%
+        color #eeeeee
         margin-left 10%
-        margin-bottom 5px
-        background rgba(0,0,0,0)
-        padding 10px 0px
+        margin-bottom 20px
+        background none
+        padding 10px 5%
         border-bottom 1px solid #999
-        font-size 20px
+        font-size 15px
       .loginsty
         width 80%
         font-size 22px
