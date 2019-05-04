@@ -22,7 +22,8 @@
     "vue-concise-slider": "^3.3.9",
     "vue-router": "^3.0.2",
     "vue-touch": "^2.0.0-beta.4",
-    "vue-video-player": "^5.0.2"
+    "vue-video-player": "^5.0.2",
+    "vuejs-dialog": "^1.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

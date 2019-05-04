@@ -21,13 +21,13 @@
     id, tel, password, username, bgimg, sex, headimg, address, selfmark, isphotographer, 
     registertime, lastlogintime, birthday, status
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.string" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_user
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.string">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from t_user
     where id = #{id,jdbcType=VARCHAR}
   </delete>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/pages/home/home'
+import publish from '@/pages/publish/publish'
 import infor from '@/pages/infor/infor'
 import my from '@/pages/my/my'
 import shop from '@/pages/shop/shop'
@@ -107,6 +108,11 @@ export default new Router({
       meta: {
         showFooter: true
       }
+    },
+    {
+      path:'/publish',
+      name: 'publish',
+      component: publish
     },
     {
       path:'/order',

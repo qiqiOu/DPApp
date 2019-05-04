@@ -39,6 +39,7 @@
       components:{Comment},
       data() {
         return {
+          userid:localStorage.getItem('userid'),
           isshowcomment:false,
           index:-1,
           items:[

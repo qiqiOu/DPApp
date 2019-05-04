@@ -1,15 +1,15 @@
 <template>
   <div class="main">
-    <i class="iconfont iconreturn"></i>
+    <i class="iconfont iconreturn" @click="goto"></i>
     <div class="register">
       <form>
         <div class="titlesty">注 册</div>
-        <input type="text" name="tel" @focus="inputtel" v-model.trim="registerData.tel" placeholder="      请输入手机号" class="inputsty"/>
-        <div class="tip" v-show="!islegal || isregister">{{islegal?(isregister?'该号码已注册，请登录！':''):'请输入正确的手机号码！'}}</div>
+        <input type="text" name="tel" @focus="inputtel" @blur="notinputtel" v-model.trim="registerData.tel" placeholder="      请输入手机号" class="inputsty"/>
+        <div class="tip" v-show="!islegal">{{islegal? '':'请输入正确的手机号码！'}}</div>
         <input type="password" name="pwd" v-model.trim="registerData.password" placeholder="      请输入密码" class="inputsty"/>
         <input type="password" name="confirmpwd" v-model.trim="confirmpwd" placeholder="      确认密码" class="inputsty"/>
         <div class="tip" v-show="confirmpwd != '' && confirmpwd != registerData.password">两次密码不一致，请重新输入！</div>
-        <input type="button" value="注 册" class="registersty" @click="register"/>
+        <input type="button" value="注 册" class="registersty" @click="register" :disabled="!islegal || registerData.tel.length ==0 || registerData.password.length == 0 || (confirmpwd != '' && confirmpwd != registerData.password)"/>
       </form>
     </div>
   </div>
@@ -26,22 +26,24 @@
           password:''
         },
         confirmpwd:'',
-        isregister:false,
         islegal:true,
       }
     },
     methods:{
-      goto(path){
-        this.$router.replace(path)
+      goto(){
+        this.$router.replace('/login')
       },
       register(){
         let success=(response)=>{
           if(response.data.code == 2){//已注册
-            this.isregister = true;
+            this.$dialog.alert('该号码已注册，请登录！',{ okText: '确定'});
           }else if(response.data.code == 1){//失败
-            console.log(response.data.msg);
+            this.$dialog.alert('请检查网络连接！',{ okText: '确定'});
           }else if(response.data.code == 0){//成功
-            console.log(response.data.msg);
+            this.$dialog.alert('注册成功！',{ okText: '确定'})
+              .then(function () {
+               this.goto();
+              })
           }
         }
         utils.axiosMethod({
@@ -52,8 +54,14 @@
         })
       },
       inputtel(){
-        this.isregister = false;
         this.islegal = true;
+      },
+      notinputtel(){
+        if(this.registerData.tel.length == 11){
+          this.islegal = true;
+        }else{
+          this.islegal = false;
+        }
       }
     }
   }

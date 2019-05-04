@@ -6,9 +6,6 @@ import com.dp.model.User;
 import com.dp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Service(value = "userService")
@@ -17,13 +14,14 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Override
     public MyResult login(User user){
-        List<User> list = new ArrayList<>();
-        list.add(userMapper.login(user));
+        User u = userMapper.login(user);
         MyResult result = new MyResult();
-        if(list.size() != 0){
+        if(u != null){
             result.setCode(0);
+            u.setStatus(1);//更改状态
+            userMapper.updateByPrimaryKeySelective(u);
             result.setMsg("登录成功！");
-            result.setObj(list.get(0));
+            result.setObj(u.getId());
         }else {
             result.setCode(1);
             result.setMsg("登录失败！");

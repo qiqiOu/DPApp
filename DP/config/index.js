@@ -16,6 +16,11 @@ module.exports = {
         secure:false,
         changeOrigin:true
       },
+      '/work/*':{
+        target:'http://localhost:8880',
+        secure:false,
+        changeOrigin:true
+      },
     },
 
     // Various Dev Server settings
